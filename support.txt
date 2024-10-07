@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Issues Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        form {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 400px;
+        }
+        input, textarea {
+            width: 100%;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the User Issues Page</h1>
+    <p>If you have any issues or suggestions, please create a new issue on GitHub.</p>
+    <a href="https://github.com/yourusername/user-issues/issues" target="_blank">Post an Issue</a>
+    <p>Once you post an issue, I will respond as soon as possible!</p>
+    
+    <h2>Contact Me Directly</h2>
+    <form id="contact-form">
+        <input type="email" id="user-email" placeholder="Your Email" required>
+        <textarea id="user-message" placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+    
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            
+            const email = document.getElementById('user-email').value;
+            const message = document.getElementById('user-message').value;
+
+            // Construct an email message
+            const emailBody = `From: ${email}\n\nMessage:\n${message}`;
+            
+            // Use the Mailto link to open the default email client
+            window.location.href = `mailto:yourpersonalemail@example.com?subject=New Message from User&body=${encodeURIComponent(emailBody)}`;
+            
+            // Clear the form
+            document.getElementById('contact-form').reset();
+            alert('Thank you for your message! I will get back to you soon.');
+        });
+    </script>
+</body>
+</html>
